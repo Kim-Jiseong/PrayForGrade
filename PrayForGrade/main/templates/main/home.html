@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'home.css' %}" type="text/css"/>
+
+<div class="container">
+
+
+    {% for list in postlist %}
+
+    <div class="postWrapper">
+        <a href="{{list.pk}}">
+            <div class="inner">{{list.subject}}</div>
+            <div class="pic"><img src="{% static 'img/향로.png' %}"></div>
+        </a>
+    </div>
+    <div class="postWrapper">
+        <a href="{{list.pk}}">
+            <div class="inner">{{list.subject}}</div>
+            <div class="pic"><img src="{% static 'img/향로.png' %}"></div>
+        </a>
+    </div>
+    <div class="postWrapper">
+        <a href="{{list.pk}}">
+            <div class="inner">{{list.subject}}</div>
+            <div class="pic"><img src="{% static 'img/향로.png' %}"></div>
+        </a>
+    </div>
+    <div class="postWrapper">
+        <a href="{{list.pk}}">
+            <div class="inner">{{list.subject}}</div>
+            <div class="pic"><img src="{% static 'img/향로.png' %}"></div>
+        </a>
+    </div>
+    <!-- <li>{{list.grade}}</li>
+    <li>{{list.term}}</li> -->
+    {% endfor %}
+
+<!-- 
+    <h1>글쓰기 페이지</h1>
+    <form method="POST">
+        {% csrf_token %}
+        제목<br>
+        <input type="text" name="username"><br>
+        내용<br>
+        <input name="subject"></input><br>
+        <input name="grade"></input><br>
+        <input name="term"></input><br>
+        
+        <input type="submit" value="글쓰기">
+    </form> -->
+    <a class="writeBtn" href="new_post/">글쓰기</a>
+</div>
+{% endblock %} 

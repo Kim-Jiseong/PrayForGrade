@@ -1,0 +1,49 @@
+.container{
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
+    font-size: 1.6rem;
+}
+
+.postWrapper {
+    width: 30%;
+    position: relative;
+    background-color: aquamarine;
+    border: 1px solid #000;
+    float: left;
+    padding: 20px;
+}
+.postWrapper:hover{
+    /* width: 30%;*/
+    padding: 0px;
+    transition: 0.3s ease-out;
+
+}
+.postWrapper:hover, .inner{
+    width:100%;
+    height: 100%;
+}
+.postWrapper:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+ 
+}
+.inner {
+    position: absolute;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.writeBtn {
+    position:absolute;
+    margin: 0 auto;
+    right:0;
+    left: 0;
+    bottom: 10vh;
+    width: 60%;
+    height: 60px;
+    background-color: bisque;
+}

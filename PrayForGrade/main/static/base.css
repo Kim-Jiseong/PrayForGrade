@@ -1,0 +1,13 @@
+body {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    position: relative;
+    margin: 0 auto;
+    /* font-size: 10px; */
+    background-color: aliceblue;
+}
+a {
+    color: white;
+    text-decoration: none;
+}

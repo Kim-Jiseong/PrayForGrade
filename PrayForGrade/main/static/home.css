@@ -1,0 +1,42 @@
+.container{
+    width: 100%;
+    /* min-height: 100vh;
+    position: relative; */
+    /* font-size: 1.6rem; */
+    display:flex;
+    flex-wrap: wrap-reverse;
+    /* gap: 0.8rem; */
+    justify-content: space-between;
+}
+.postWrapper {
+    position:relative;
+    width: 30%;
+    /* flex-basis: 30%; */
+    flex-grow: 0;
+    /* transform: translateY(50px) */
+}
+/* .postWrapper:hover{
+    padding:0;
+    width: 30%;
+    transition: 0.3s ease-out;
+} */
+.pic img{
+    width: 100%;
+    overflow: hidden;
+}
+.inner {
+    position:absolute;
+    left:50%;
+    bottom: 10%;
+    transform: translate(-50%, 0);
+}
+.writeBtn {
+    position:absolute;
+    margin: 0 auto;
+    right:0;
+    left: 0;
+    bottom: 10vh;
+    width: 60%;
+    height: 60px;
+    background-color: bisque;
+}
