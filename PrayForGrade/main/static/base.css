@@ -18,3 +18,15 @@ a {
     color: white;
     text-decoration: none;
 }
+.input {
+    font-family: 'Cafe24Oneprettynight';
+    height: 32px;
+    font-family: 700;
+    background-color: #eee;
+    font-size: 1.8rem;
+    border-radius: 3px;
+}
+input {
+    font-family: 'Cafe24Oneprettynight';
+    /* border-style: none; */
+}
