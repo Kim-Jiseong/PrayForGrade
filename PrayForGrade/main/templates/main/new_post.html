@@ -1,26 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'new_post.css' %}" type="text/css"/>
 
     <h1>글쓰기 페이지</h1>
     <form method="POST">
         {% csrf_token %}
-        username<br>
-        <input type="text" name="username"><br>
-        subject<br>
-        <input name="subject"></input><br>
-        grade<br>
-        <input name="grade"></input><br>
-        term<br>
-        <input name="term"></input><br>
+        이름<br>
+        <input class="username" type="text" name="username" required><br>
+        과목명<br>
+        <input class="subject"  name="subject" required></input><br>
+        학점<br>
+        <!-- <input class="grade" name="grade"></input><br> -->
+        <select name="grade" class="grade" default="F" required>
+            <option value="">학점을 선택하세요</option>
+            <option value="B0">B0</option>
+            <option value="B-">B-</option>
+            <option value="C+">C+</option>
+            <option value="C0">C0</option>
+            <option value="C-">C-</option>
+            <option value="D+">D+</option>
+            <option value="D0">D0</option>
+            <option value="D-">D-</option>
+            <option value="F">F</option>
+            <option value="NP">NP</option>
+        </select>
+        <!-- term<br> -->
+        <input class="term" name="term" value="2022-1"></input><br>
         
         <input type="submit" value="글쓰기">
     </form>
-</body>
-</html>
+{% endblock %} 
