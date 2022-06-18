@@ -264,3 +264,15 @@ select{
     font-size: 1.8rem;
     margin-bottom: 1.4rem;
 }
+.addText{
+    position:fixed;
+    left: 50%;
+    bottom: 6px;
+    width: 50%;
+    text-align: center;
+    max-width: 210px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 700;
+    pointer-events:none;
+}
