@@ -5,5 +5,5 @@ urlpatterns = [
     path('', home, name='home'),
     # path('detail/<int:pk>',detail, name="detail"),
     path('detail_ajax/<int:pk>',detail_ajax, name="detail_ajax"),
-    # path('new_post/', new_post),
+    path('new_post/', new_post),
 ]

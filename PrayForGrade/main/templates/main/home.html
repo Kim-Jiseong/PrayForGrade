@@ -140,7 +140,8 @@ function closeModal() {// 모달 닫기
 
     // 피드 추가 부분
     $('#feed-create').submit((event) => {
-//   event.preventDefault() 새로고침 방지
+    {% comment %} event.preventDefault()  {% endcomment %}
+    {% comment %} 새로고침 방지 {% endcomment %}
     var form = $("#feed-create")[0];
     var form_data = new FormData(form);
     username = $("#username").val();
