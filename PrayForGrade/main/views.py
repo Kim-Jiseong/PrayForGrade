@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Post
+from django.http import HttpResponseBadRequest, JsonResponse
 # Create your views here.
 # def home(request, pk):
 def home(request):
@@ -17,6 +18,16 @@ def detail(request, pk):
     # detail.html 페이지를 열 때, 찾아낸 게시글(post)을 post라는 이름으로 가져옴
     return render(request, 'main/detail.html', {'post':post})
 
+
+def detail_ajax(request, pk):
+    post = Post.objects.get(pk=pk)
+    data = {
+        'subject': post.subject,
+        'username': post.username,
+        'grade' : post.grade,
+        'term' : post.term,
+    }
+    return JsonResponse(data)
 def new_post(request):
     if request.method == 'POST':
         new_article=Post.objects.create(

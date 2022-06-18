@@ -12,6 +12,10 @@ body {
     position: relative;
     margin: 0 auto;
     /* font-size: 10px; */
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
     background-color: aliceblue;
 }
 a {

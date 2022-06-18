@@ -22,6 +22,7 @@ select{
     padding-right: 10px;
 }
 .postWrapper {
+    cursor: pointer;
     position:relative;
     width: 25%;
     /* width: calc(30% - 3rem); */
@@ -46,6 +47,7 @@ select{
     overflow: hidden;
 }
 .inner {
+    color: white;
     position:absolute;
     left:50%;
     bottom: 20%;
@@ -121,8 +123,8 @@ select{
     left:0;
     right:0;
     bottom:10vh;
-    opacity: 0;
     visibility: hidden;
+    opacity: 0;
     /* display:none; */
     z-index: 400;
     flex-direction: column;
@@ -133,10 +135,10 @@ select{
 
 .createOpen{
     visibility: visible;
+    opacity: 1;
     transition: 0.6s;
     transition-delay: 0.3s;
     display:flex;
-    opacity: 1;
     pointer-events: auto;
 }
 .modal{
@@ -187,4 +189,78 @@ select{
 }
 .blackOpen{
     display: block;
+}
+
+.modalPic {
+    display: flex;
+    justify-content: center;
+}
+.modalPic img{
+    width: 80%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.detailWrapper {
+    display:flex;
+    flex-direction: column;
+    color: white;
+    position:absolute;
+    left:50%;
+    bottom: 25%;
+    transform: translate(-50%, 0);
+    font-weight: 700;
+    text-align: center;
+    overflow: hidden;
+    white-space: normal;
+}
+.detailWrapper > span{
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+.detailContainer{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50vh;
+    transform: translateY(-50%);
+    z-index: 600;
+    display:flex;
+    visibility: hidden;
+    opacity: 0;
+    max-width: 420px;
+    transition: 0.3s;
+}
+.detailOpen{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.6s;
+    transition-delay: 0.1s;
+    pointer-events: auto;
+}
+.closeBtn{
+    width: 80%;
+    max-width: 378px;
+    text-align: right;
+    color:white;
+    font-size: 3rem;
+    font-weight: 700;
+    align-items: center;
+    position: fixed;
+    top: 5vh;
+    z-index: 600;
+    transition: 0.3s;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+.openCloseBtn{
+    visibility: visible;
+    opacity: 1;
+}
+#Dsubject{
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
 }

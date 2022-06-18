@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css"/>
-
+<div class="detailContainer"></div>
+<div class="closeBtn" onclick="closeModal()">X</div>
 <div class="header">
     <div class="title">
         <p>
@@ -11,22 +12,13 @@
     </div>
 </div>
 <div class="container">
-
-
-
     {% for list in postlist %}
-<!-- 
-    <div class="postWrapper" >
-        <a href="detail/{{list.pk}}">
+
+    <div class="postWrapper" onclick="openDetail({{list.pk}})">
+        {% comment %} <!-- <a href="{% url 'detail' pk=list.pk %}"> --> {% endcomment %}
             <div class="inner">{{list.subject}}</div>
             <div class="pic"><img src="{% static 'img/burner-apng.png' %}"></div>
-        </a>
-    </div> -->
-    <div class="postWrapper">
-        <a href="{% url 'detail' pk=list.pk %}">
-            <div class="inner">{{list.subject}}</div>
-            <div class="pic"><img src="{% static 'img/burner-apng.png' %}"></div>
-        </a>
+        {% comment %} <!-- </a> --> {% endcomment %}
     </div>
     {% endfor %}
 
@@ -34,11 +26,11 @@
 </div>
 <form  id="feed-create" method="post" class="createForm" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="subtitle">이름</div><br>
-    <input class="username input" id="username"type="text" name="username" required><br>
-    <div class="subtitle">과목명</div><br>
-    <input class="subject input"  id="subject"name="subject" required></input><br>
-    <div class="subtitle">학점</div><br>
+    <div class="subtitle">닉네임</div><br/>
+    <input class="username input" maxlength='8' id="username"type="text" name="username" required><br/>
+    <div class="subtitle">과목명</div><br/>
+    <input class="subject input" maxlength='16' id="subject"name="subject" required></input><br/>
+    <div class="subtitle">학점</div><br/>
     <!-- <input class="grade" name="grade"></input><br> -->
     <select name="grade input" id="grade"class="grade" default="F" required>
         <option value="">학점을 선택하세요</option>
@@ -57,7 +49,7 @@
     <input class="term input" id="term" name="term" value="2022-1"></input><br>
     
     <input class="submit" type="submit" value="버튼을 눌러 조의를 표하십시오">
-    <input  class="close submit" onclick="closeModal()" type="button" value="닫기">
+    {% comment %} <input  class="close submit" onclick="closeModal()" type="button" value="닫기"> {% endcomment %}
 </form>
 <img id="writeBtn" class="writeBtn"src="{% static 'img/cover.png' %}" onclick="openModal()"/>
 <img class="crying"src="{% static 'img/crying-gif.gif' %}"/>
@@ -66,33 +58,85 @@
 
 
 
-
-
+{% comment %} script----------------------------------- {% endcomment %}
 <script>
 const body = document.querySelector('body');
 let scrollPosition = 0;
+var pk = null;
+console.log(scrollPosition)
 
+function openDetail(gotpk){
+    var template = 0
+    console.log(gotpk)
+    pk = gotpk
+    if (pk != null){
+        $.ajax({
+        url: "detail_ajax/"+gotpk,
+        async: false,
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+            console.log(data);
+            template = `
+            <div class="modalPic"><img src="{% static 'img/burner_default.png' %}"></div>
+            <div class="detailWrapper">
+                <span id="Dsubject">${data.subject}</span>
+                <span id="Dusername">상주: ${data.username}</span>
+                <span id="Dgrade">학점: ${data.grade}</span>
+            </div>
+            `
+        },
+        error: (error) => {
+            console.log(error);
+        }
+        });
+        modal = document.querySelector(".detailContainer")
+        console.log(template)
+        modal.innerHTML = template
+        console.log(modal)
+    }
+    
+    else{
+        console.log("pk error. current pk == null")
+    }
+    scrollPosition = window.pageYOffset;
+    body.style.overflow = 'hidden';
+    body.style.top = `-${scrollPosition}px`;
+    body.style.width = '100%';
+    document.querySelector('.closeBtn').classList.add('openCloseBtn');
+    document.querySelector('.blackBG').classList.add('blackOpen');
+    document.querySelector('.detailContainer').classList.add('detailOpen');
+
+}
 
 function openModal() {// 모달 오픈
   document.getElementById('writeBtn').classList.add('modal');
   document.getElementById('feed-create').classList.add('createOpen');
   document.querySelector('.blackBG').classList.add('blackOpen');
+  document.querySelector('.closeBtn').classList.add('openCloseBtn');
   scrollPosition = window.pageYOffset;
   body.style.overflow = 'hidden';
-//   body.style.position = 'fixed';
   body.style.top = `-${scrollPosition}px`;
   body.style.width = '100%';
+  console.log(scrollPosition)
 }
 function closeModal() {// 모달 닫기
   document.getElementById('writeBtn').classList.remove('modal');
   document.getElementById('feed-create').classList.remove('createOpen');
+  document.querySelector('.detailContainer').classList.remove('detailOpen');
   document.querySelector('.blackBG').classList.remove('blackOpen');
+  document.querySelector('.closeBtn').classList.remove('openCloseBtn');
+
   body.style.removeProperty('overflow');
 //   body.style.removeProperty('position');
   body.style.removeProperty('top');
   body.style.removeProperty('width');
   window.scrollTo(0, scrollPosition);
 }
+
+
+
+
 
     // 피드 추가 부분
     $('#feed-create').submit((event) => {
