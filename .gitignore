@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,visualstudiocode
 source/
+서버관리.txt
 db.sqlite3
 .static_root/
 mysqlSetting.py
