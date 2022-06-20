@@ -89,10 +89,11 @@ select{
 .header{
     /* position:fixed; */
     display:flex;
+    color: #eee;
+    flex-direction: column;
     max-width: 420px;
     width: calc(100% - 2rem);
-    height: 26vh;
-    max-height: 600px;
+    height: 200px;
     background-color: black;
     text-align: center;
     justify-content: center;
@@ -104,6 +105,15 @@ select{
     color: #eee;
     font-size: 2rem;
     line-height: 140%;
+}
+.info{
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+}
+.info span{
+    cursor: pointer;
+    padding-right: 2rem;
 }
 .yb{
     width: 100%;
@@ -241,21 +251,28 @@ select{
     pointer-events: auto;
 }
 .closeBtn{
-    width: 80%;
-    max-width: 378px;
+    width: 100%;
+    max-width: 420px;
     text-align: right;
-    color:white;
-    font-size: 3rem;
-    font-weight: 700;
     align-items: center;
     position: fixed;
-    top: 5vh;
+    top: 4vh;
+    /* left: 80vw; */
     z-index: 600;
     transition: 0.3s;
-    cursor: pointer;
     visibility: hidden;
     opacity: 0;
+    color:white;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    font-size: 3rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+.closeBtnContent{
+    margin-right: 2rem;
+}
+.closeBtnContent:hover{
+    font-size: 3.4rem;
 }
 .openCloseBtn{
     visibility: visible;
@@ -276,4 +293,43 @@ select{
     font-size: 1.4rem;
     font-weight: 700;
     pointer-events:none;
+}
+
+.infoModal{
+    width: 80%;
+    max-width: 336px;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50vh;
+    left:50%;
+    border-radius: 4px;
+    transform: translate(-50%,-50%);
+    z-index: 600;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    background-color: white;
+}
+.infoModal > img{
+    width: 40%;
+    margin-top: 3rem;
+}
+.openInfoModal{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.6s;
+    display:flex;
+    pointer-events: auto;
+}
+.infoContent{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    word-break: keep-all;
 }
