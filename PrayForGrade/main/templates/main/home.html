@@ -82,7 +82,7 @@ console.log(scrollPosition)
 
 function openDetail(gotpk){
     var template = 0
-    console.log(gotpk)
+    {% comment %} console.log(gotpk) {% endcomment %}
     pk = gotpk
     if (pk != null){
         $.ajax({
@@ -106,9 +106,8 @@ function openDetail(gotpk){
         }
         });
         modal = document.querySelector(".detailContainer")
-        console.log(template)
         modal.innerHTML = template
-        console.log(modal)
+        {% comment %} console.log(modal) {% endcomment %}
     }
     
     else{
