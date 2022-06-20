@@ -78,7 +78,7 @@
 const body = document.querySelector('body');
 let scrollPosition = 0;
 var pk = null;
-console.log(scrollPosition)
+{% comment %} console.log(scrollPosition) {% endcomment %}
 
 function openDetail(gotpk){
     var template = 0
@@ -91,7 +91,7 @@ function openDetail(gotpk){
         type: "GET",
         dataType: "json",
         success: (data) => {
-            console.log(data);
+            {% comment %} console.log(data); {% endcomment %}
             template = `
             <div class="modalPic"><img src="{% static 'img/burner_default.png' %}"></div>
             <div class="detailWrapper">
