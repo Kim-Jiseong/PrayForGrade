@@ -4,7 +4,7 @@ select{
     font-size: 1.2rem;
     cursor: pointer;
     background-color: #eee;
-    margin-bottom: 60px ;
+    margin-bottom: 30px ;
     border: 2px solid #000;
     border-radius: 3px;
 }
@@ -129,6 +129,8 @@ select{
     width: 80%;
     height: auto;
     max-width: 360px;
+    max-height: 70vh;
+    overflow: scroll;
     margin: 0 auto;
     left:0;
     right:0;
@@ -141,8 +143,12 @@ select{
     transition: 0.3s;
     justify-content: center;
     pointer-events: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
-
+.createForm::-webkit-scrollbar{
+    display:none;
+}
 .createOpen{
     visibility: visible;
     opacity: 1;
