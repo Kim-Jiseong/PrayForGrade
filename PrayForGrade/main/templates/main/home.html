@@ -18,6 +18,7 @@
     <ins class="kakao_ad_area" style="display:none;" 
     data-ad-unit    = "DAN-xuBJ0bGaRyGV88LQ" 
     data-ad-width   = "320" 
+    data-ad-onfail   = "adError1"
     data-ad-height  = "100"></ins> 
    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </div>
@@ -52,6 +53,7 @@
         <ins class="kakao_ad_area" style="display:none;" 
         data-ad-unit    = "DAN-MkKtcCZQntiBxz3B" 
         data-ad-width   = "320" 
+        data-ad-onfail   = "adError3"
         data-ad-height  = "100"></ins> 
        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     </div>
@@ -86,6 +88,7 @@
     <ins class="kakao_ad_area" style="display:none;" 
     data-ad-unit    = "DAN-4fe1lgv7aLAIIp8a" 
     data-ad-width   = "300" 
+    data-ad-onfail   = "adError2"
     data-ad-height  = "250"></ins> 
    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </div>
@@ -97,8 +100,14 @@
 
 {% comment %} script----------------------------------- {% endcomment %}
 <script>
-function callBackFunc(arg1) {
-    console.log("광고 로드 안됨")
+function addError1(arg1) {
+    console.log("header 광고 로드 실패")
+}
+function addError2(arg1) {
+    console.log("footer 광고 로드 실패")
+}
+function addError3(arg1) {
+    console.log("modal 광고 로드 실패")
 }
 const body = document.querySelector('body');
 let scrollPosition = 0;
