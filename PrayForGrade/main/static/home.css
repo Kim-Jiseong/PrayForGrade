@@ -253,7 +253,8 @@ select{
 .closeBtn{
     width: 100%;
     max-width: 420px;
-    text-align: right;
+    display: flex;
+    justify-content: right;
     align-items: center;
     position: fixed;
     top: 4vh;
@@ -265,10 +266,12 @@ select{
     color:white;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-size: 3rem;
-    cursor: pointer;
+    pointer-events: none;
     font-weight: 700;
 }
 .closeBtnContent{
+    pointer-events: auto;
+    cursor: pointer;
     margin-right: 2rem;
 }
 .closeBtnContent:hover{
