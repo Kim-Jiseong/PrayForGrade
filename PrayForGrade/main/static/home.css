@@ -97,7 +97,6 @@ select{
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
     border: 1rem ridge #916346;
 }
 .title{
@@ -342,4 +341,13 @@ select{
     margin-bottom: 3rem;
     font-size: 1.2rem;
     word-break: keep-all;
+}
+.ad_banner{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }
