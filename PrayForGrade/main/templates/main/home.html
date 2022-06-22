@@ -41,11 +41,11 @@
 </div>
 <form  id="feed-create" method="post" class="createForm" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="subtitle">닉네임</div><br/>
-    <input class="username input" maxlength='8' id="username"type="text" name="username" required><br/>
-    <div class="subtitle">과목명</div><br/>
-    <input class="subject input" maxlength='16' id="subject"name="subject" required></input><br/>
-    <div class="subtitle">학점</div><br/>
+    <div class="subtitle">닉네임</div>
+    <input class="username input" maxlength='8' id="username"type="text" name="username" required>
+    <div class="subtitle">과목명</div>
+    <input class="subject input" maxlength='16' id="subject"name="subject" required></input>
+    <div class="subtitle">학점</div>
     <!-- <input class="grade" name="grade"></input><br> -->
     <select name="grade input" id="grade"class="grade" default="F" required>
         <option value="">학점을 선택하세요</option>
