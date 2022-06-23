@@ -71,6 +71,7 @@ select{
     /* height: 60px; */
     max-width: 210px;
     cursor: pointer;
+    z-index: 1;
     /* object-fit: contain; */
 }
 .writeBtn:hover {
@@ -81,6 +82,7 @@ select{
     width: 50%;
     max-width: 210px;
     position: fixed;
+    z-index: 1;
     bottom: 0;
     pointer-events:none;
 }
@@ -165,7 +167,6 @@ select{
     cursor: default;
     transition: 0.3s;
     margin: 0 auto;
-
     z-index: 3;
 }
 .modal:hover{
@@ -300,6 +301,7 @@ select{
     max-width: 210px;
     cursor: pointer;
     font-size: 1.4rem;
+    z-index: 2;
     font-weight: 700;
     pointer-events:none;
 }
@@ -347,7 +349,28 @@ select{
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 20px;
 
+}
+.detail-ad{
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    height: 100px;
+    margin: 0 auto;
+    position:fixed;
+    display:flex;
+    bottom: 0;
+    /* display:none; */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 20;
+}
+.openDetailAd{
+    visibility: visible;
+    pointer-events: auto;
+    transition: 0.3s;
+    opacity: 1;
 }
