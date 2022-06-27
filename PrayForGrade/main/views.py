@@ -10,7 +10,7 @@ def home(request):
     # postlist = Post.objects.all()
     postlist = Post.objects.order_by('-id')
     print(postlist)
-    paginator = Paginator(postlist, 20)
+    paginator = Paginator(postlist, 30)
     page_obj = paginator.get_page(page)
     # print(page_obj)
     context = {'postlist': page_obj}
