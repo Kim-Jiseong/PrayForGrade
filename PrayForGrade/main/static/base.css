@@ -34,3 +34,7 @@ input {
     font-family: 'Cafe24Oneprettynight';
     /* border-style: none; */
 }
+ul{
+    list-style:none;
+    padding-left:0px;
+}

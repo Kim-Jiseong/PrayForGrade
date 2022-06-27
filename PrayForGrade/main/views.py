@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect
 from .models import Post
 from django.http import HttpResponseBadRequest, JsonResponse
+from django.core.paginator import Paginator  
 # Create your views here.
 # def home(request, pk):
 def home(request):
+    page = request.GET.get('page', '1')  # 페이지
     # 모든 Post를 가져와 postlist에 저장합니다
-    postlist = Post.objects.all()
-    # post = Post.objects.get(pk=pk)
+    postlist = Post.objects.order_by('-created_at')
+    paginator = Paginator(postlist, 30)
+    page_obj = paginator.get_page(page)
+    context = {'postlist': page_obj}
+
     # blog.html 페이지를 열 때, 모든 Post인 postlist도 같이 가져옵니다 
-    return render(request, 'main/home.html', {'postlist':postlist})
-    # return render(request, 'main/home.html', {'postlist':postlist, 'post':post})
+    return render(request, 'main/home.html', context)
 
 # blog의 게시글(detail)을 부르는 detail 함수
 def detail(request, pk):

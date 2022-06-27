@@ -10,7 +10,8 @@
 </div>
 <div class="header">
     <div class="title">
-        2022년 1학기<br/>{{ postlist | length}} 과목 <br/> 학점 합동 분향소
+        2022년 1학기<br/>{{ postlist.paginator.count}} 과목 <br/> 학점 합동 분향소
+        {% comment %} 2022년 1학기<br/>{{ postlist | length}} 과목 <br/> 학점 합동 분향소 {% endcomment %}
     </div>
     <div class="info"><span onclick="openInfo()">개발자 정보 -></span></div>
 </div>
@@ -84,6 +85,52 @@
 <img id="writeBtn" class="writeBtn"src="{% static 'img/cover.png' %}" onclick="openModal()"><div class="addText">추가하기</div></img>
 <img class="crying"src="{% static 'img/crying-gif.gif' %}"></img>
 
+<div class="pageWrapper">
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination">
+        <!-- 이전페이지 -->
+        {% if postlist.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">처음</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ postlist.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        {% comment %} <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li> {% endcomment %}
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in postlist.paginator.page_range %}
+        {% if page_number >= postlist.number|add:-2 and page_number <= postlist.number|add:2 %}
+        {% if page_number == postlist.number %}
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if postlist.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ postlist.next_page_number }}">다음</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page=-1">마지막</a>
+        </li>
+        {% else %}
+        {% comment %} <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li> {% endcomment %}
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+</div>
 <div class="ad_banner">
     <ins class="kakao_ad_area" style="display:none; margin-top: 40px;" 
     data-ad-unit    = "DAN-4fe1lgv7aLAIIp8a" 
@@ -92,12 +139,19 @@
     data-ad-height  = "250"></ins> 
    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </div>
+<div class="ad_banner">
+    <ins class="kakao_ad_area" style="display:none;" 
+    data-ad-unit    = "DAN-kHXE5ub3RaNXOyzV" 
+    data-ad-width   = "300" 
+    data-ad-onfail   = "adError2"
+    data-ad-height  = "250"></ins> 
+   <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script></div>
 
 <div class="yb"></div>
 <div class="blackBG" onclick="closeModal()"></div>
 <div class="detail-ad">
     <ins class="kakao_ad_area" style="display:none;" 
-    data-ad-unit    = "DAN-wHAoltSVoMW9rStt" 
+    data-ad-unit    = "DAN-EC5uWgrTApuHpkck" 
     data-ad-width   = "320" 
     data-ad-onfail   = "adError4"
     data-ad-height  = "100"></ins> 

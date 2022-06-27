@@ -14,7 +14,8 @@ select{
     position: relative;
     /* font-size: 1.6rem; */
     display:flex;
-    flex-wrap: wrap-reverse;
+    /* flex-wrap: wrap-reverse; */
+    flex-wrap: wrap;
     /* gap: 0.8rem; */
     justify-content: space-between;
     padding-left: 10px;
@@ -373,4 +374,23 @@ select{
     pointer-events: auto;
     transition: 0.3s;
     opacity: 1;
+}
+.pageWrapper{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+}
+.pagination{
+    display:flex;
+    width:80%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.page-link{
+    color:black;
+}
+.active a{
+    font-weight: 700;
+    font-size: 1.3rem;
 }
