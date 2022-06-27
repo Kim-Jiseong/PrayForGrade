@@ -30,7 +30,6 @@
             <span>개발자:<br/> 김지성<br/>(고려대 영문 21, NEXT X Likelion 9기)</span>
             <br/><span>개발자 연락처:<br/> jiseong0173@gmail.com</span>
             <br/><span>vanilla JS + django + mysql</span>
-            <br/><span>광고 문의 대환영</span>
         </div>
 
 </div>
@@ -50,14 +49,6 @@
 </div>
 <form  id="feed-create" method="post" class="createForm" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="ad_banner">
-        <ins class="kakao_ad_area" style="display:none;" 
-        data-ad-unit    = "DAN-wWgilPgBIuwggAk5" 
-        data-ad-width   = "320" 
-        data-ad-onfail   = "adError3"
-        data-ad-height  = "100"></ins> 
-       <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-    </div>
     <div class="subtitle">닉네임</div>
     <input class="username input" maxlength='8' id="username"type="text" name="username" required>
     <div class="subtitle">과목명</div>
@@ -149,14 +140,8 @@
 
 <div class="yb"></div>
 <div class="blackBG" onclick="closeModal()"></div>
-<div class="detail-ad">
-    <ins class="kakao_ad_area" style="display:none;" 
-    data-ad-unit    = "DAN-EC5uWgrTApuHpkck" 
-    data-ad-width   = "320" 
-    data-ad-onfail   = "adError4"
-    data-ad-height  = "100"></ins> 
-   <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-</div>
+{% comment %} <div class="detail-ad">
+</div> {% endcomment %}
 
 
 
