@@ -4,7 +4,7 @@ from .models import Post
 
 # Register your models here.
 # 관리자(admin)가 게시글(Post)에 접근 가능
-admin.site.register(Post)
-# @admin.register(Post)
-# class PostAdmin(admin.ModelAdmin):
-#     list_display = ['id', 'subject', 'username', 'created_at']
+# admin.site.register(Post)
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['id', 'subject', 'username', 'created_at']
