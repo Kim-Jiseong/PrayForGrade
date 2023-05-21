@@ -10,7 +10,7 @@
 </div>
 <div class="header">
     <div class="title">
-        2022년 1학기<br/>{{ postlist.paginator.count}} 과목 <br/> 학점 합동 분향소
+        2023년 1학기<br/>{{ postlist.paginator.count}} 과목 <br/> 학점 합동 분향소
         {% comment %} 2022년 1학기<br/>{{ postlist | length}} 과목 <br/> 학점 합동 분향소 {% endcomment %}
     </div>
     <div class="info"><span onclick="openInfo()">개발자 정보 -></span></div>
@@ -27,9 +27,9 @@
     <img src="{% static 'img/crying-gif.gif' %}"/><br/>
     <div class="infoTitle"> </div>
         <div class="infoContent">
-            <span>개발자: 김지성<br/>(고려대 영문 21, NEXT X Likelion 9기)</span>
+            <span>개발자: 김지성<br/></span>
             <br/><span>개발자 연락처:<br/> jiseong0173@gmail.com <br/>@jiseong173</span>
-            <br/><span>vanilla JS + django + mysql</span>
+            {% comment %} <br/><span>vanilla JS + django + mysql</span> {% endcomment %}
         </div>
 
 </div>
